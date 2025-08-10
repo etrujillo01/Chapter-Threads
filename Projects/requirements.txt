@@ -1,0 +1,7 @@
+#Django==4.2.7
+Django>=3.2,<4
+psutil==5.9.6 
+redis
+pillow
+djangorestframework
+opencv-python-headless
