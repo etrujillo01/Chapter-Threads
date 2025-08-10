@@ -14,15 +14,15 @@ jobs:
       - name: Login to Docker Hub
         uses: docker/login-action@v3
         with:
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
+          username: ${{ secrets.DOCKERHUB_USERNAME }} # etrujillo1975
+          password: ${{ secrets.DOCKERHUB_TOKEN }} # tu token PAT
 
       # ===== API =====
       - name: Build & Push API (amd64)
         uses: docker/build-push-action@v6
         with:
-          context: .
-          file: Projects/docker/Dockerfile.api
+          context: Projects # <-- contexto correcto
+          file: Projects/Dockerfile.api # <-- ruta real
           platforms: linux/amd64
           push: true
           tags: |
@@ -32,8 +32,8 @@ jobs:
       - name: Build & Push Worker (amd64)
         uses: docker/build-push-action@v6
         with:
-          context: .
-          file: Projects/docker/Dockerfile.worker
+          context: Projects
+          file: Projects/Dockerfile.worker
           platforms: linux/amd64
           push: true
           tags: |
